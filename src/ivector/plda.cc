@@ -183,8 +183,8 @@ void Plda::SmoothWithinClassCovariance(double smoothing_factor) {
   KALDI_ASSERT(smoothing_factor >= 0.0 && smoothing_factor <= 1.0);
   // smoothing_factor > 1.0 is possible but wouldn't really make sense.
 
-  KALDI_LOG << "Smoothing within-class covariance by " << smoothing_factor
-            << ", Psi is initially: " << psi_;
+  // KALDI_LOG << "Smoothing within-class covariance by " << smoothing_factor
+  //           << ", Psi is initially: " << psi_;
   Vector<double> within_class_covar(Dim());
   within_class_covar.Set(1.0); // It's now the current within-class covariance
                                // (a diagonal matrix) in the space transformed
@@ -196,7 +196,7 @@ void Plda::SmoothWithinClassCovariance(double smoothing_factor) {
   /// covariance in this space is now less.
 
   psi_.DivElements(within_class_covar);
-  KALDI_LOG << "New value of Psi is " << psi_;
+  // KALDI_LOG << "New value of Psi is " << psi_;
 
   within_class_covar.ApplyPow(-0.5);
   transform_.MulRowsVec(within_class_covar);
