@@ -25,7 +25,7 @@
 #include <string>
 
 #include "matrix/matrix-lib.h"
-#include "util/common-utils.h"
+// #include "util/common-utils.h"
 #include "base/kaldi-error.h"
 
 namespace kaldi {
@@ -61,7 +61,7 @@ struct FrameExtractionOptions {
       snip_edges(true),
       allow_downsample(false) { }
 
-  void Register(OptionsItf *opts) {
+  /*void Register(OptionsItf *opts) {
     opts->Register("sample-frequency", &samp_freq,
                    "Waveform data sample frequency (must match the waveform file, "
                    "if specified there)");
@@ -88,7 +88,7 @@ struct FrameExtractionOptions {
     opts->Register("allow-downsample", &allow_downsample,
                    "If true, allow the input waveform to have a higher frequency than"
                    "the specified --sample-frequency (and we'll downsample).");
-  }
+  }*/
   int32 WindowShift() const {
     return static_cast<int32>(samp_freq * 0.001 * frame_shift_ms);
   }

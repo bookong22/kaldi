@@ -809,7 +809,8 @@ function linux_configure_dynamic {
 # math library. Here we unset them so that we can check later.
 unset MKLROOT
 unset CLAPACKROOT
-unset OPENBLASROOT
+# unset OPENBLASROOT
+OPENBLASROOT=/home/bookong/22-github/02-my-kaldi-arm/tools/OpenBLAS/install/
 unset MKLLIBDIR
 
 # This variable identifies the type of system where built programs and

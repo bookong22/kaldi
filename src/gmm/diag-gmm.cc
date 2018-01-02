@@ -964,5 +964,33 @@ DiagGmm::DiagGmm(const GaussClusterable &gc,
   this->SetWeights(weights);
   this->ComputeGconsts();
 }
-
+// 20180102 add by csd , 为了将声纹接口统一成vector
+void DiagGmm::GetGconstsWeightsInvVarsMeansInvVars(Vector<BaseFloat> &gconsts, Vector<BaseFloat> &weights, 
+                                          Matrix<BaseFloat> &means_invvars, Matrix<BaseFloat> &inv_vars) const {
+    int mix = means_invvars_.NumRows();
+    int dim = means_invvars_.NumCols();
+    // Resize
+    gconsts.Resize(mix);
+    weights.Resize(mix);
+    means_invvars.Resize(mix, dim);
+    inv_vars.Resize(mix, dim);
+    // Copy
+    gconsts.CopyFromVec(gconsts_);
+    weights.CopyFromVec(weights_);
+    means_invvars.CopyFromMat(means_invvars_);
+    inv_vars.CopyFromMat(inv_vars_);
+}
+// 20180102 add by csd , 为了将声纹接口统一成vector
+void DiagGmm::SetGconstsWeightsInvVarsMeansInvVars(Vector<BaseFloat> gconsts, Vector<BaseFloat> weights, 
+                                          Matrix<BaseFloat> means_invvars, Matrix<BaseFloat> inv_vars) {
+    int mix = means_invvars.NumRows();
+    int dim = means_invvars.NumCols();
+    Resize(mix, dim);
+    // Copy
+    gconsts_.CopyFromVec(gconsts);
+    weights_.CopyFromVec(weights);
+    means_invvars_.CopyFromMat(means_invvars);
+    inv_vars_.CopyFromMat(inv_vars);
+    valid_gconsts_ = true;
+}
 }  // End namespace kaldi

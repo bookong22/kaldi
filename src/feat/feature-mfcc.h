@@ -58,7 +58,7 @@ struct MfccOptions {
                   cepstral_lifter(22.0),
                   htk_compat(false) {}
 
-  void Register(OptionsItf *opts) {
+  /*void Register(OptionsItf *opts) {
     frame_opts.Register(opts);
     mel_opts.Register(opts);
     opts->Register("num-ceps", &num_ceps,
@@ -75,7 +75,7 @@ struct MfccOptions {
                    "If true, put energy or C0 last and use a factor of sqrt(2) on "
                    "C0.  Warning: not sufficient to get HTK compatible features "
                    "(need to change other parameters).");
-  }
+  }*/
 };
 
 

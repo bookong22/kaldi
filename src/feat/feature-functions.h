@@ -27,7 +27,7 @@
 #include <vector>
 
 #include "matrix/matrix-lib.h"
-#include "util/common-utils.h"
+// #include "util/common-utils.h"
 #include "base/kaldi-error.h"
 
 namespace kaldi {
@@ -53,12 +53,12 @@ struct DeltaFeaturesOptions {
 
   DeltaFeaturesOptions(int32 order = 2, int32 window = 2):
       order(order), window(window) { }
-  void Register(OptionsItf *opts) {
+  /*void Register(OptionsItf *opts) {
     opts->Register("delta-order", &order, "Order of delta computation");
     opts->Register("delta-window", &window,
                    "Parameter controlling window for delta computation (actual window"
                    " size for each delta order is 1 + 2*delta-window-size)");
-  }
+  }*/
 };
 
 class DeltaFeatures {
@@ -89,12 +89,12 @@ struct ShiftedDeltaFeaturesOptions {
 
   ShiftedDeltaFeaturesOptions():
       window(1), num_blocks(7), block_shift(3) { }
-  void Register(OptionsItf *opts) {
+  /*void Register(OptionsItf *opts) {
     opts->Register("delta-window", &window, "Size of delta advance and delay.");
     opts->Register("num-blocks", &num_blocks, "Number of delta blocks in advance"
                    " of each frame to be concatenated");
     opts->Register("block-shift", &block_shift, "Distance between each block");
-  }
+  }*/
 };
 
 class ShiftedDeltaFeatures {
@@ -167,7 +167,7 @@ struct SlidingWindowCmnOptions {
       normalize_variance(false),
       center(false) { }
 
-  void Register(OptionsItf *opts) {
+  /*void Register(OptionsItf *opts) {
     opts->Register("cmn-window", &cmn_window, "Window in frames for running "
                    "average CMN computation");
     opts->Register("min-cmn-window", &min_window, "Minimum CMN window "
@@ -178,7 +178,7 @@ struct SlidingWindowCmnOptions {
     opts->Register("center", &center, "If true, use a window centered on the "
                    "current frame (to the extent possible, modulo end effects). "
                    "If false, window is to the left.");
-  }
+  }*/
   void Check() const;
 };
 

@@ -26,7 +26,7 @@
 
 #include "gmm/diag-gmm.h"
 #include "gmm/mle-diag-gmm.h"
-#include "util/kaldi-thread.h"
+// #include "util/kaldi-thread.h"
 
 namespace kaldi {
 
@@ -482,7 +482,7 @@ void MapDiagGmmUpdate(const MapDiagGmmOptions &config,
   if (count_out) *count_out = occ_sum;
 }
 
-
+/*
 class AccumulateMultiThreadedClass: public MultiThreadable {
  public:
   AccumulateMultiThreadedClass(const DiagGmm &diag_gmm,
@@ -533,8 +533,8 @@ class AccumulateMultiThreadedClass: public MultiThreadable {
   double *tot_like_ptr_;
   double tot_like_;
 };
-
-
+*/
+/*
 BaseFloat AccumDiagGmm::AccumulateFromDiagMultiThreaded(
     const DiagGmm &gmm,
     const MatrixBase<BaseFloat> &data,
@@ -554,7 +554,7 @@ BaseFloat AccumDiagGmm::AccumulateFromDiagMultiThreaded(
   }
   return tot_like;
 }
-
+*/
 void AccumDiagGmm::AssertEqual(const AccumDiagGmm &other) {
   KALDI_ASSERT(dim_ == other.dim_ && num_comp_ == other.num_comp_ &&
                flags_ == other.flags_);

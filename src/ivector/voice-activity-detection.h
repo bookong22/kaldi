@@ -27,7 +27,7 @@
 #include <vector>
 
 #include "matrix/matrix-lib.h"
-#include "util/common-utils.h"
+// #include "util/common-utils.h"
 #include "base/kaldi-error.h"
 
 namespace kaldi {
@@ -49,7 +49,7 @@ struct VadEnergyOptions {
                       vad_energy_mean_scale(0.5),
                       vad_frames_context(0),
                       vad_proportion_threshold(0.6) { }
-  void Register(OptionsItf *opts) {
+  /*void Register(OptionsItf *opts) {
     opts->Register("vad-energy-threshold", &vad_energy_threshold,
                    "Constant term in energy threshold for MFCC0 for VAD (also see "
                    "--vad-energy-mean-scale)");
@@ -64,7 +64,7 @@ struct VadEnergyOptions {
                    "Parameter controlling the proportion of frames within "
                    "the window that need to have more energy than the "
                    "threshold");
-  }
+  }*/
 };
 
 

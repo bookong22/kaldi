@@ -29,7 +29,7 @@
 #include <vector>
 
 #include "base/kaldi-common.h"
-#include "util/common-utils.h"
+// #include "util/common-utils.h"
 #include "matrix/matrix-lib.h"
 
 
@@ -57,7 +57,7 @@ struct MelBanksOptions {
       : num_bins(num_bins), low_freq(20), high_freq(0), vtln_low(100),
         vtln_high(-500), debug_mel(false), htk_mode(false) {}
 
-  void Register(OptionsItf *opts) {
+  /*void Register(OptionsItf *opts) {
     opts->Register("num-mel-bins", &num_bins,
                    "Number of triangular mel-frequency bins");
     opts->Register("low-freq", &low_freq,
@@ -71,7 +71,7 @@ struct MelBanksOptions {
                    " (if negative, offset from high-mel-freq");
     opts->Register("debug-mel", &debug_mel,
                    "Print out debugging information for mel bin computation");
-  }
+  }*/
 };
 
 
