@@ -226,7 +226,12 @@ class DiagGmm {
   /// Accessor for single component variance.
   template<class Real>
   void GetComponentVariance(int32 gauss, VectorBase<Real> *out) const;
-
+  // 20180102 add by csd , 为了将声纹接口统一成vector
+  void GetGconstsWeightsInvVarsMeansInvVars(Vector<BaseFloat> &gconsts, Vector<BaseFloat> &weights, 
+                                            Matrix<BaseFloat> &means_invvars, Matrix<BaseFloat> &inv_vars) const;
+  // 20180102 add by csd , 为了将声纹接口统一成vector
+  void SetGconstsWeightsInvVarsMeansInvVars(Vector<BaseFloat> gconsts, Vector<BaseFloat> weights, 
+                                            Matrix<BaseFloat> means_invvars, Matrix<BaseFloat> inv_vars);
  private:
   /// Equals log(weight) - 0.5 * (log det(var) + mean*mean*inv(var))
   Vector<BaseFloat> gconsts_;
