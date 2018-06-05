@@ -655,9 +655,9 @@ void OnlineIvectorEstimationStats::GetIvector(
     // ivector->AddSpVec(1.0, quadratic_inv, linear_term_, 0.0);
     if ((*ivector)(0) == 0.0)
       (*ivector)(0) = prior_offset_;  // better initial guess.
-    LinearCgdOptions opts;
-    opts.max_iters = num_cg_iters;
-    LinearCgd(opts, quadratic_term_, linear_term_, ivector);
+    // LinearCgdOptions opts;
+    // opts.max_iters = num_cg_iters;
+    // LinearCgd(opts, quadratic_term_, linear_term_, ivector);
   } else {
     // Use 'default' value.
     ivector->SetZero();
